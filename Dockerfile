@@ -1,0 +1,25 @@
+FROM node:20.16-alpine3.20
+
+WORKDIR /app
+
+COPY ./config/.npmrc .
+COPY ./core ./core
+COPY ./web-ui ./web-ui
+COPY ./personal-node ./personal-node
+
+COPY ./config/pnpm-workspace.yaml .
+
+RUN npm install -g pnpm
+RUN pnpm install
+RUN cd core && pnpm run build
+RUN cd web-ui && pnpm run build
+RUN cd personal-node && pnpm run build
+
+VOLUME [ "/data" ]
+ENV DATA_DIR=/data
+
+EXPOSE 80
+ENV PORT=80
+
+ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
+RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
