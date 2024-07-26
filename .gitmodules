@@ -1,0 +1,9 @@
+[submodule "personal-node"]
+	path = personal-node
+	url = https://github.com/satellite-earth/personal-node.git
+[submodule "core"]
+	path = core
+	url = https://github.com/satellite-earth/core.git
+[submodule "web-ui"]
+	path = web-ui
+	url = https://github.com/satellite-earth/web-ui.git
