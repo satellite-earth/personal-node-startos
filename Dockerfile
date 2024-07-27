@@ -1,6 +1,8 @@
-FROM node:20.16-alpine3.20
+FROM node:20.16-alpine3.20 AS builder
 
 WORKDIR /app
+
+RUN apk add --update --no-cache python3 make
 
 COPY ./config/.npmrc .
 COPY ./core ./core
@@ -14,6 +16,10 @@ RUN pnpm install
 RUN cd core && pnpm run build
 RUN cd web-ui && pnpm run build
 RUN cd personal-node && pnpm run build
+
+FROM node:20.16-alpine3.20
+
+COPY --from=builder /app /app
 
 VOLUME [ "/data" ]
 ENV DATA_DIR=/data
