@@ -23,7 +23,7 @@ build: ["make"]
 # Human readable descriptors for the service. These are used throughout the StartOS user interface, primarily in the marketplace.
 description:
   # This is the first description visible to the user in the marketplace.
-  short: Example service
+  short: Personal nostr relay
   # This description will display with additional details in the service's individual marketplace page
   long: |
     Hello World is a bare-bones service that launches a web interface to say "Hello World", and nothing more.
@@ -75,7 +75,7 @@ hardware-requirements:
 health-checks:
   web-ui:
     name: Web Interface
-    success-message: The Hello World is accessible
+    success-message: Satellite Node UI is accessible
     type: script
 config: ~
 properties: ~
@@ -92,7 +92,7 @@ interfaces:
     # A human readable name for display in the UI
     name: User Interface
     # A descriptive description of what the interface does
-    description: A simple user interface that is expected to display satellite web UI
+    description: A simple user interface that is expected to display Satellite Web UI
     tor-config:
     # Port mappings are from the external port to the internal container port
       port-mapping:
