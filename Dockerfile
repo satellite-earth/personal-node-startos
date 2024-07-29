@@ -2,7 +2,7 @@ FROM node:20.16-alpine3.20 AS builder
 
 WORKDIR /app
 
-RUN apk add --update --no-cache python3 make
+RUN apk add --update --no-cache python3 make build-base
 
 COPY ./config/.npmrc .
 COPY ./core ./core
