@@ -26,6 +26,7 @@ ENV DATA_DIR=/data
 
 EXPOSE 80
 ENV PORT=80
+ENV TOR_PROXY=embassy:9050
 
 ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
