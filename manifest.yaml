@@ -77,7 +77,11 @@ health-checks:
     name: Web Interface
     success-message: Satellite Node UI is accessible
     type: script
-config: ~
+config:
+  get:
+    type: script
+  set:
+    type: script
 properties: ~
 #  type: script
 # This denotes any data, asset, or pointer volumes that should be connected when the "docker run" command is invoked
@@ -92,7 +96,7 @@ interfaces:
     # A human readable name for display in the UI
     name: User Interface
     # A descriptive description of what the interface does
-    description: A simple user interface that is expected to display Satellite Web UI
+    description: A relay and web interface for satellite node
     tor-config:
     # Port mappings are from the external port to the internal container port
       port-mapping:
