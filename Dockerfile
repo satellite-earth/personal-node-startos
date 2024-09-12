@@ -4,20 +4,13 @@ WORKDIR /app
 
 RUN apk add --update --no-cache python3 make build-base
 
-COPY ./config/.npmrc .
-COPY ./core ./core
-COPY ./web-ui ./web-ui
-COPY ./personal-node ./personal-node
-
-COPY ./config/pnpm-workspace.yaml .
+COPY ./packages ./packages
 
 RUN npm install -g pnpm
-RUN pnpm install
-RUN cd core && pnpm run build
-RUN cd web-ui && pnpm run build
-RUN cd personal-node && pnpm run build
+RUN cd packages && make install
+RUN cd packages && make build
 
-FROM node:20.16-alpine3.20
+FROM node:20.16-alpine3.20 AS main
 
 COPY --from=builder /app /app
 
