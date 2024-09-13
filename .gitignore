@@ -1,5 +1,15 @@
 *.s9pk
 scripts/*.js
-.DS_Store
-.vscode/
 docker-images
+
+# Editor directories and files
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
