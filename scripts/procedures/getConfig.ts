@@ -3,7 +3,7 @@
 import { compat } from "../deps.ts";
 
 export const [getConfig, setConfigMatcher] = compat.getConfigAndMatcher({
-	'tor-address': {
+  "tor-address": {
     name: "Tor Address",
     description: "The Tor address of the node and relay interface",
     type: "pointer",
@@ -11,5 +11,5 @@ export const [getConfig, setConfigMatcher] = compat.getConfigAndMatcher({
     "package-id": "satellite-personal-node",
     target: "tor-address",
     interface: "main",
-	}
+  },
 });

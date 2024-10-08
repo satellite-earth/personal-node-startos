@@ -1,6 +1,7 @@
 # The package identifier used by the OS. This must be unique amongst all other known packages
-id: satellite-personal-node
- # A human readable service title
+id:
+  satellite-personal-node
+  # A human readable service title
 title: "Satellite Personal Node"
 # Service version - accepts up to four digits, where the last confirms to revisions necessary for StartOS - see documentation: https://github.com/Start9Labs/emver-rs. This value will change with each release of the service.
 version: 0.4.1
@@ -64,7 +65,7 @@ main:
   mounts:
     # Specifies where on the service's file system its persistence directory should be mounted prior to service startup
     main: /root
-# Specifies whether GPU acceleration is enabled or not. False by default.
+  # Specifies whether GPU acceleration is enabled or not. False by default.
   gpu-acceleration: false
 # Defines what architectures will be supported by the service. This service supports x86_64 and aarch64 architectures.
 hardware-requirements:
@@ -75,7 +76,7 @@ hardware-requirements:
 health-checks:
   web-ui:
     name: Web Interface
-    success-message: Satellite Node UI is accessible
+    success-message: Satellite UI is accessible
     type: script
 config:
   get:
@@ -98,7 +99,7 @@ interfaces:
     # A descriptive description of what the interface does
     description: A relay and web interface for satellite node
     tor-config:
-    # Port mappings are from the external port to the internal container port
+      # Port mappings are from the external port to the internal container port
       port-mapping:
         80: "80"
     # Port mappings are from the external port to the internal container port

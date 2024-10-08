@@ -1,5 +1,5 @@
 {
-	"search.exclude": {
-		"**/packages": true
-	}
+  "search.exclude": {
+    "**/packages": true
+  }
 }
